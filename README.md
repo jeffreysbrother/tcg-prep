@@ -20,7 +20,7 @@ Install gitpython:
 sudo pip install GitPython
 ```
 
-create a module called `tcgPrepConfig.py` and populate it like this:
+Create a module called `tcgPrepConfig.py` alongside `tcg-prep.py` and populate it like this, making sure to update all paths to reflect their location on your local machine:
 
 ```py
 tf = "/path/to/tf/repo"
@@ -56,7 +56,3 @@ Running `python tcg-prep.py` will reload Vagrant and ensure that no repo is in a
 Add the `--copy-configs` argument to ensure that your local site configs match the production ones.
 
 Add the `--skip-vagrant` argument if you do not wish to restart Vagrant.
-
-### Misc
-
-Since you are not me, you'll have to update `directoryList` and `siteConfigFiles` to reflect the repos and config files you commonly use.
