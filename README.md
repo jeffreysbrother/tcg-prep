@@ -20,6 +20,35 @@ Install gitpython:
 sudo pip install GitPython
 ```
 
+create a module called `tcgPrepConfig.py` and populate it like this:
+
+```
+tf = "/path/to/tf/repo"
+icm = "/path/to/icm/repo"
+pubrec = "/path/to/pubrec/repo"
+config = "/path/to/config/repo"
+dsc = "/path/to/dsc/repo"
+
+directoryList = [
+    ['TF', tf],
+    ['ICM', icm],
+    ['PUBREC', pubrec],
+    ['CONFIG', config],
+    ['DATA SERVICE CLIENT', dsc]
+]
+
+siteConfigFiles = [
+    [
+        "/path/to/tf/production/config.json",
+        "/path/to/tf/local/config.json"
+    ],
+    [
+        "/path/to/icm/production/config.json",
+        "/path/to/icm/local/config.json"
+    ]
+]
+```
+
 ### Using the tool
 
 Running `python tcg-prep.py` will reload Vagrant and ensure that no repo is in a detached head state.
