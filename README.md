@@ -20,7 +20,19 @@ Install GitPython:
 sudo pip install gitpython
 ```
 
-Create a module called `tcgPrepConfig.py` alongside `tcg-prep.py` and populate it like this, making sure to update all paths to reflect their location on your local machine:
+In your .bashrc or .zshrc file, add something like this (you might need slightly different formatting for bash):
+
+```
+export PATH="/path/to/cloned/repo:$PATH"
+```
+
+Run this command in the repo you just cloned in order to make the script executable:
+
+```
+chmod +x tcg-prep
+```
+
+Create a file called `config.py` alongside `tcg-prep` and populate it like this, making sure to update all paths to reflect their location on your local machine:
 
 ```py
 tf = "/path/to/tf/repo"
@@ -51,8 +63,12 @@ siteConfigFiles = [
 
 ### Using the tool
 
-Running `python tcg-prep.py` will reload Vagrant and ensure that no repo is in a detached head state.
+Running `tcg-prep` will reload Vagrant and ensure that no repo is in a detached head state.
 
 Add the `--copy-configs` argument to ensure that your local site configs match the production ones.
 
 Add the `--skip-vagrant` argument if you do not wish to restart Vagrant.
+
+### Issues
+
+If the program will not run, you might need to modify the first line of `tcg-prep` to reflect the proper location and version of the Python interpreter.
