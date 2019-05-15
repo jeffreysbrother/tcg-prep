@@ -14,10 +14,10 @@ python -V
 pip -V
 ```
 
-Install gitpython:
+Install GitPython:
 
 ```
-sudo pip install GitPython
+sudo pip install gitpython
 ```
 
 Create a module called `tcgPrepConfig.py` alongside `tcg-prep.py` and populate it like this, making sure to update all paths to reflect their location on your local machine:
