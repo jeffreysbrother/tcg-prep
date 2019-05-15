@@ -22,7 +22,7 @@ sudo pip install GitPython
 
 create a module called `tcgPrepConfig.py` and populate it like this:
 
-```
+```py
 tf = "/path/to/tf/repo"
 icm = "/path/to/icm/repo"
 pubrec = "/path/to/pubrec/repo"
