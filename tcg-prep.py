@@ -1,3 +1,4 @@
+#!/usr/local/bin/python
 import os
 from sys import argv
 from git import Repo
@@ -14,6 +15,17 @@ directoryList = [
     ['PUBREC', pubrec],
     ['CONFIG', config],
     ['DATA SERVICE CLIENT', dsc]
+]
+
+siteConfigFiles = [
+    [
+        "/Users/jamescool/vagrants/public-records/sites/public-records-site-configs/truthfinder.com.json",
+        "/Users/jamescool/vagrants/public-records/sites/public-records-site-configs/truthfinder.app.public-records.local.tcg.io.json"
+    ],
+    [
+        "/Users/jamescool/vagrants/public-records/sites/public-records-site-configs/instantcheckmate.com.json",
+        "/Users/jamescool/vagrants/public-records/sites/public-records-site-configs/instantcheckmate.app.public-records.local.tcg.io.json"
+    ]
 ]
 
 # reload vagrant unless "--skip-vagrant" argument exists
@@ -34,17 +46,6 @@ for item in directoryList:
 
 # copy production site config to local only if "--copy-configs" argument exists
 if ('--copy-configs' in argv):
-    siteConfigFiles = [
-        [
-            "/Users/jamescool/vagrants/public-records/sites/public-records-site-configs/truthfinder.com.json",
-            "/Users/jamescool/vagrants/public-records/sites/public-records-site-configs/truthfinder.app.public-records.local.tcg.io.json"
-        ],
-        [
-            "/Users/jamescool/vagrants/public-records/sites/public-records-site-configs/instantcheckmate.com.json",
-            "/Users/jamescool/vagrants/public-records/sites/public-records-site-configs/instantcheckmate.app.public-records.local.tcg.io.json"
-        ]
-    ]
-
     for file in siteConfigFiles:
         with open(file[0]) as f:
             with open(file[1], "w") as f1:
