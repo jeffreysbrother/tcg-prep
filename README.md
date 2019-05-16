@@ -1,6 +1,6 @@
 # TCG Prep
 
-Reload Vagrant, ensure that all relevant repos are not in a detached head state (a common side effect of reloading Vagrant), and copy production site configs to your local site configs.
+Reload Vagrant, checkout previous branch if in a detached head state (a common side effect of reloading Vagrant), and copy production site configs to your local site configs.
 
 ### Installation
 
@@ -74,14 +74,14 @@ Add the `--skip-vagrant` argument to skip the *vagrant reload* command.
 If the command `tcg-prep --copy-configs` is executed, you should see something like the following (once Vagrant is finally reloaded):
 
 ```
-TF repo: master branch.
-ICM repo: detached head state. Checking out master!
-PUBREC repo: detached head state. Checking out master!
-CONFIG repo: master branch.
-DATA SERVICE CLIENT repo: master branch.
+TF: detached head state. Checking out jc_address_404.
+ICM: master branch.
+PUBREC: detached head state. Checking out master.
+CONFIG: master branch.
+DATA SERVICE CLIENT: master branch.
 ----------------
-tf-production-config.json copied to local site config.
-icm-production-config.json copied to local site config.
+truthfinder.com.json copied to local site config.
+instantcheckmate.com.json copied to local site config.
 ```
 
 ### Issues

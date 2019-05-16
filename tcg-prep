@@ -15,10 +15,10 @@ def main():
     for item in config.directoryList:
         itemRepo = Repo(item[1])
         if itemRepo.head.is_detached:
-            print(item[0] + " repo: detached head state. Checking out master!")
-            itemRepo.git.checkout('master')
+            itemRepo.git.checkout('-')
+            print(item[0] + ": detached head state. Checking out " + itemRepo.active_branch.name + ".")
         else:
-            print(item[0] + " repo: " + itemRepo.active_branch.name + " branch.")
+            print(item[0] + ": " + itemRepo.active_branch.name + " branch.")
 
 
     # copy production site config to local only if "--copy-configs" argument exists
