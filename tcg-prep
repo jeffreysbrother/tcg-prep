@@ -20,7 +20,7 @@ def main():
             print(item[0] + ": detached head state. Checking out " + itemRepo.active_branch.name + ".")
         else:
             print(item[0] + ": " + itemRepo.active_branch.name + " branch.")
-        # check status, pull if branch is behind and log message TODO: add this too README
+        # check status, pull if branch is behind and log message
         os.chdir(item[1])
         if "branch is behind" in subprocess.check_output(["git", "status"]):
             print(item[0] + " " + itemRepo.active_branch.name + " branch is behind origin. Pulling.")
