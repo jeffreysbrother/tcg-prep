@@ -1,6 +1,11 @@
 # TCG Prep
 
-Reload Vagrant, checkout previous branch if in a detached head state (a common side effect of reloading Vagrant), and copy production site configs to your local site configs.
+This script automates the following tasks:
+
+* Reload Vagrant
+* Checkout previous branch if in a detached head state (a common side effect of reloading Vagrant)
+* Pull origin if behind
+* Copy production site configs to local site configs
 
 ### Installation
 

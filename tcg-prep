@@ -1,5 +1,6 @@
 #!/usr/bin/env python2.7
 import os
+import subprocess
 from sys import argv
 from git import Repo
 import config
@@ -17,9 +18,13 @@ def main():
         if itemRepo.head.is_detached:
             itemRepo.git.checkout('-')
             print(item[0] + ": detached head state. Checking out " + itemRepo.active_branch.name + ".")
-            # itemRepo.git.pull() (does not work: find a way to pull and reflect this in README)
         else:
             print(item[0] + ": " + itemRepo.active_branch.name + " branch.")
+        # check status, pull if branch is behind and log message TODO: add this too README
+        os.chdir(item[1])
+        if "branch is behind" in subprocess.check_output(["git", "status"]):
+            print(item[0] + " " + itemRepo.active_branch.name + " branch is behind origin. Pulling.")
+            os.system("git pull origin " + itemRepo.active_branch.name + " --quiet")
 
 
     # copy production site config to local only if "--copy-configs" argument exists
