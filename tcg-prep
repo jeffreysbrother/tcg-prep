@@ -17,6 +17,7 @@ def main():
         if itemRepo.head.is_detached:
             itemRepo.git.checkout('-')
             print(item[0] + ": detached head state. Checking out " + itemRepo.active_branch.name + ".")
+            # itemRepo.git.pull() (does not work: find a way to pull and reflect this in README)
         else:
             print(item[0] + ": " + itemRepo.active_branch.name + " branch.")
 
