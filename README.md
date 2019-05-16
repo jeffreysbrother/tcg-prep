@@ -79,14 +79,16 @@ Add the `--skip-vagrant` argument to skip the *vagrant reload* command.
 If the command `tcg-prep --copy-configs` is executed, you should see something like the following (once Vagrant is finally reloaded):
 
 ```
-TF: detached head state. Checking out jc_address_404.
+TF: detached head state. Checking out master.
+>>> TF master branch is behind origin. Pulling.
 ICM: master branch.
 PUBREC: detached head state. Checking out master.
+>>> PUBREC master branch is behind origin. Pulling.
 CONFIG: master branch.
 DATA SERVICE CLIENT: master branch.
 ----------------
-truthfinder.com.json copied to local site config.
-instantcheckmate.com.json copied to local site config.
+tf-production-config.json copied to local site config.
+icm-production-config.json copied to local site config.
 ```
 
 ### Issues

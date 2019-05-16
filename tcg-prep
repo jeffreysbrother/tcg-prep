@@ -24,7 +24,7 @@ def main():
         os.chdir(item[1])
         os.system("git fetch --quiet")
         if "branch is behind" in subprocess.check_output(["git", "status"]):
-            print(item[0] + " " + itemRepo.active_branch.name + " branch is behind origin. Pulling.")
+            print(">>> " + item[0] + " " + itemRepo.active_branch.name + " branch is behind origin. Pulling.")
             os.system("git pull origin " + itemRepo.active_branch.name + " --quiet")
 
 
