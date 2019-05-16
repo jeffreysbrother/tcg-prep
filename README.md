@@ -65,13 +65,13 @@ siteConfigFiles = [
 
 Running `tcg-prep` will reload Vagrant and ensure that no repo is in a detached head state.
 
-Add the `--copy-configs` argument to ensure that your local site configs match the production ones.
+Add the `--copy-configs` argument to copy the contents of the production site configs to the local ones.
 
-Add the `--skip-vagrant` argument if you do not wish to restart Vagrant.
+Add the `--skip-vagrant` argument to skip the *vagrant reload* command.
 
 ### Output
 
-The expected output should be something like this (if you include the "--copy-configs" flag):
+If the command `tcg-prep --copy-configs` is executed, you should see something like the following (once Vagrant is finally reloaded):
 
 ```
 TF repo: master branch.
