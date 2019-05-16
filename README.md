@@ -51,12 +51,12 @@ directoryList = [
 
 siteConfigFiles = [
     [
-        "/path/to/tf/production/config.json",
-        "/path/to/tf/local/config.json"
+        "/path/to/tf-production-config.json",
+        "/path/to/tf-local-config.json"
     ],
     [
-        "/path/to/icm/production/config.json",
-        "/path/to/icm/local/config.json"
+        "/path/to/icm-production-config.json",
+        "/path/to/icm-local-config.json"
     ]
 ]
 ```
@@ -68,6 +68,21 @@ Running `tcg-prep` will reload Vagrant and ensure that no repo is in a detached 
 Add the `--copy-configs` argument to ensure that your local site configs match the production ones.
 
 Add the `--skip-vagrant` argument if you do not wish to restart Vagrant.
+
+### Output
+
+The expected output should be something like this (if you include the "--copy-configs" flag):
+
+```
+TF repo: master branch.
+ICM repo: detached head state. Checking out master!
+PUBREC repo: detached head state. Checking out master!
+CONFIG repo: master branch.
+DATA SERVICE CLIENT repo: master branch.
+----------------
+tf-production-config.json copied to local site config.
+icm-production-config.json copied to local site config.
+```
 
 ### Issues
 

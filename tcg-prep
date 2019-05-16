@@ -23,11 +23,13 @@ def main():
 
     # copy production site config to local only if "--copy-configs" argument exists
     if ('--copy-configs' in argv):
+        print('----------------')
         for file in config.siteConfigFiles:
             with open(file[0]) as f:
                 with open(file[1], "w") as f1:
                     for line in f:
                         f1.write(line)
+            print(os.path.basename(file[0]) + " copied to local site config.")
 
 if __name__ == "__main__":
     main()
