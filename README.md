@@ -3,9 +3,9 @@
 This script automates the following tasks:
 
 * Reload Vagrant
-* Checkout previous branch if in a detached head state (a common side effect of reloading Vagrant)
-* Pull origin if behind
-* Copy production site configs to local site configs
+* For all specified repos, checkout previous branch if in a detached head state (a common side effect of reloading Vagrant)
+* For all specified repos, pull if behind origin
+* For all specified site configs, copy production one to local counterpart
 
 ### Installation
 
@@ -37,15 +37,19 @@ Run this command in the repo you just cloned in order to make the script executa
 chmod +x tcg-prep
 ```
 
-Create a file called `config.py` alongside `tcg-prep` and populate it like this, making sure to update all paths to reflect their location on your local machine:
+Create a file called `config.py` alongside `tcg-prep` and populate it like this, making sure to update all paths as necessary.
 
 ```py
+# directoryList is a list of repos that often become detached 
+# during "vagrant reload" and require a daily pull
 tf = "/path/to/tf/repo"
 icm = "/path/to/icm/repo"
 pubrec = "/path/to/pubrec/repo"
 config = "/path/to/config/repo"
 dsc = "/path/to/dsc/repo"
 
+# directoryList[n][0] is an arbitrary name for some repo
+# directoryList[n][1] is the path to that repo
 directoryList = [
     ['TF', tf],
     ['ICM', icm],
@@ -54,6 +58,8 @@ directoryList = [
     ['DATA SERVICE CLIENT', dsc]
 ]
 
+# siteConfigFile[n][0] must refer to a production site config
+# siteConfigFile[n][1] must refer to the local counterpart
 siteConfigFiles = [
     [
         "/path/to/tf-production-config.json",
@@ -68,11 +74,11 @@ siteConfigFiles = [
 
 ### Using the tool
 
-Running `tcg-prep` will reload Vagrant and ensure that no repo is in a detached head state.
+Running `tcg-prep` reloads Vagrant and ensure that no repo is in a detached head state.
 
-Add the `--copy-configs` argument to copy the contents of the production site configs to the local ones.
+Add the `--copy-configs` flag to copy the contents of the production site config(s) to the local one(s).
 
-Add the `--skip-vagrant` argument to skip the *vagrant reload* command.
+Add the `--skip-vagrant` flag to skip the *vagrant reload* command.
 
 ### Output
 
