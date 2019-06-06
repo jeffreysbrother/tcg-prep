@@ -100,3 +100,7 @@ icm-production-config.json copied to local site config.
 ### Issues
 
 If the program will not run, you might need to modify the first line of `tcg-prep` to reflect the proper location and version of the Python interpreter.
+
+### Future features
+
+[ ] Check first if there are 1) changes not staged, and/or 2) uncommitted but staged changes.
