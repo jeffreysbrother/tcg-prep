@@ -17,7 +17,11 @@ def main():
         itemRepo = Repo(item[1])
         if itemRepo.head.is_detached:
             itemRepo.git.checkout('-')
-            print(item[0] + ": detached head state. Checking out " + itemRepo.active_branch.name + ".")
+            try:
+                print(item[0] + ": detached head state. Checking out " + itemRepo.active_branch.name + ".")
+            except:
+                print(item[0] + ": detached head state. Previous active branch also detached. Checking out master.")
+                itemRepo.git.checkout('master')
         else:
             print(item[0] + ": " + itemRepo.active_branch.name + " branch.")
         # check status, fetch to get changes, pull if branch is behind and log message
