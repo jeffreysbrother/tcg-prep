@@ -103,5 +103,5 @@ If the program will not run, you might need to modify the first line of `tcg-pre
 
 ### Future features
 
-[ ] Check first if there are 1) changes not staged, and/or 2) uncommitted but staged changes.
+[ ] Check first if there are 1) changes not staged, and/or 2) uncommitted but staged changes. This is essential for preventing an error.
 [ ] Use colors for the output text.
